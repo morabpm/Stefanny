@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Steffany Porrino | Fisioterapia Pélvica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            rose: '#E11D48',
+                            green: '#059669',
+                            dark: '#0F172A',
+                            light: '#FFF1F2'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FFFFFF; color: #334155; }
+        .hero-bg { background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%); }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-rose selection:text-white">
+
+    <!-- Cabeçalho -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-md z-50 border-b border-rose-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-brand-dark flex items-center gap-2">
+                <span class="text-brand-rose"><i class="fa-solid fa-leaf"></i></span>
+                Dra. Steffany Porrino
+            </div>
+            <a href="https://wa.me/5511976188106" target="_blank" class="bg-brand-green hover:bg-emerald-700 text-white px-5 py-2 rounded-full font-bold transition-all shadow-md text-sm md:text-base">
+                Contato
+            </a>
+        </div>
+    </header>
+
+    <!-- Seção Principal -->
+    <section id="inicio" class="hero-bg pt-28 pb-16 md:pt-40 md:pb-28">
+        <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-10">
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-4">
+                    Sua saúde íntima com a <span class="text-brand-rose">excelência</span> e o acolhimento que você merece.
+                </h1>
+                <p class="text-base md:text-lg text-gray-700 mb-8 max-w-lg mx-auto md:mx-0 font-medium">
+                    Fisioterapia Pélvica especializada para mulheres. Prevenção, reabilitação e qualidade de vida.
+                </p>
+                <div class="flex flex-col gap-4 justify-center md:justify-start">
+                    <a href="https://wa.me/5511976188106" target="_blank" class="bg-brand-rose hover:bg-rose-700 text-white text-center px-8 py-4 rounded-full font-bold transition-all shadow-lg transform hover:-translate-y-1 inline-block w-full md:w-auto">
+                        <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Agendar avaliação
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center w-full mt-8 md:mt-0">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-brand-rose/30 rounded-full blur-3xl transform scale-110"></div>
+                    <!-- FOTO CHAMADA DIRETAMENTE DO GITHUB -->
+                    <img src="stanny_2.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-64 h-64 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-white shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section id="sobre" class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="text-3xl font-extrabold text-brand-dark mb-2">Conheça a Dra. Steffany Porrino</h2>
+            <h3 class="text-lg text-brand-rose font-bold mb-8">Unindo o rigor científico ao cuidado humanizado.</h3>
+            
+            <div class="bg-brand-light p-6 md:p-12 rounded-3xl shadow-lg border border-rose-100 text-gray-800 leading-relaxed text-left text-sm md:text-base space-y-4">
+                <p>Sou Fisioterapeuta graduada pela UNESP e pós-graduada em Fisioterapia em Ginecologia pela UNIFESP. Minha paixão por compreender o corpo feminino levou-me a integrar grupos de investigação científica na área de Uroginecologia.</p>
+                <p>O meu propósito é desmistificar os tabus em torno da saúde pélvica e oferecer um espaço seguro, livre de julgamentos, com tratamentos altamente personalizados e embasados na ciência.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="especialidades" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-extrabold text-center text-brand-dark mb-10">Especialidades</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-brand-rose">
+                    <div class="text-brand-rose text-4xl mb-4"><i class="fa-solid fa-droplet"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Incontinência Urinária</h3>
+                    <p class="text-gray-700 text-sm">Fortalecimento e reabilitação do assoalho pélvico para tratar perdas involuntárias de urina, devolvendo sua segurança diária.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-brand-rose">
+                    <div class="text-brand-rose text-4xl mb-4"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Disfunções Sexuais</h3>
+                    <p class="text-gray-700 text-sm">Tratamento para dores na relação (como vaginismo e dispareunia). Reabilitamos a função muscular para o resgate do seu prazer.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-t-8 border-brand-rose">
+                    <div class="text-brand-rose text-4xl mb-4"><i class="fa-solid fa-person-pregnant"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Fisioterapia Obstétrica</h3>
+                    <p class="text-gray-700 text-sm">Preparação do assoalho pélvico para o parto, alívio de dores gestacionais e reabilitação segura no pós-parto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-brand-dark text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-extrabold mb-8 text-brand-rose">Agende sua avaliação</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://wa.me/5511976188106" target="_blank" class="w-12 h-12 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center text-xl hover:bg-brand-green hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://instagram.com/steffanyporrino" target="_blank" class="w-12 h-12 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center text-xl hover:bg-brand-green hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">São Paulo, SP</p>
+            <p class="text-gray-600 text-xs mt-8">&copy; 2026 Dra. Steffany Porrino. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5511976188106" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center gap-3 border-4 border-white">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+</body>
+</html>
