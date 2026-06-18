@@ -37,6 +37,17 @@
         /* Estilo para animação do FAQ */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        /* Cursor piscando para o efeito de digitação */
+        .typewriter-cursor {
+            border-right: 3px solid #E11D48;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #E11D48; }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-rose selection:text-white">
@@ -64,8 +75,9 @@
     <section id="inicio" class="hero-bg pt-32 pb-20 md:pt-40 md:pb-28">
         <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-6">
-                    Sua saúde íntima com a <span class="text-brand-rose">excelência</span> e o acolhimento que você merece.
+                <!-- Título com o Efeito de Digitação (Typewriter) -->
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-6 min-h-[120px] md:min-h-0">
+                    Sua saúde íntima com <span id="typewriter-text" class="text-brand-rose"></span><span class="typewriter-cursor"></span><br> e o acolhimento que você merece.
                 </h1>
                 <p class="text-lg text-gray-700 mb-8 max-w-lg mx-auto md:mx-0 font-medium">
                     Fisioterapia Pélvica especializada para mulheres. Prevenção, reabilitação e qualidade de vida com base em ciência.
@@ -240,8 +252,9 @@
                 </div>
             </div>
             
+            <!-- Link do Rodapé Atualizado -->
             <div class="text-center text-gray-500 mt-20 font-medium">
-                &copy; 2026 Dra. Steffany Porrino. Todos os direitos reservados.
+                Desenvolvido por <a href="https://www.directcontrol.com.br" target="_blank" class="text-brand-rose hover:text-gray-300 transition-colors font-bold">Direct control</a>
             </div>
         </div>
     </footer>
@@ -253,6 +266,53 @@
             Agende a sua Consulta
         </span>
     </a>
+
+    <!-- Script para Animação de Digitação (Typewriter) -->
+    <script>
+        const words = ["excelência", "segurança", "empatia", "tecnologia"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeWriterElement = document.getElementById("typewriter-text");
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                // Apagando a palavra
+                typeWriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Digitando a palavra
+                typeWriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Velocidades de digitação (em milissegundos)
+            let typingSpeed = isDeleting ? 60 : 120;
+
+            // Se a palavra inteira foi digitada
+            if (!isDeleting && charIndex === currentWord.length) {
+                typingSpeed = 2500; // Tempo de pausa com a palavra montada na tela
+                isDeleting = true;
+            } 
+            // Se a palavra inteira foi apagada
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length; // Passa para a próxima palavra
+                typingSpeed = 500; // Pausa antes de começar a digitar a nova
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Inicia o efeito 500ms após a página carregar
+        document.addEventListener("DOMContentLoaded", () => {
+            if(typeWriterElement) {
+                setTimeout(typeEffect, 500);
+            }
+        });
+    </script>
 
 </body>
 </html>
