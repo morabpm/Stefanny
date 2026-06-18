@@ -18,10 +18,10 @@
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
                     colors: {
                         brand: {
-                            rose: '#E11D48', // Rosa Vivo (Pink forte/Carmim)
-                            green: '#059669', // Verde Esmeralda Vivo
-                            dark: '#0F172A', // Azul marinho quase preto para alto contraste
-                            light: '#FFF1F2' // Fundo levemente rosado e iluminado
+                            rose: '#E11D48',
+                            green: '#059669',
+                            dark: '#0F172A',
+                            light: '#FFF1F2'
                         }
                     }
                 }
@@ -34,7 +34,6 @@
         .hero-bg {
             background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
         }
-        /* Estilo para animação do FAQ */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         
@@ -50,7 +49,8 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-rose selection:text-white">
+<!-- O 'select-none' impede que o usuário selecione/grife o texto com o mouse -->
+<body class="antialiased select-none">
 
     <!-- Cabeçalho -->
     <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-md z-50 border-b border-rose-100">
@@ -94,7 +94,7 @@
             <div class="flex-1 flex justify-center">
                 <div class="relative">
                     <div class="absolute inset-0 bg-brand-rose/30 rounded-full blur-3xl transform scale-110"></div>
-                    <img src="stanny.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-white shadow-2xl">
+                    <img src="stanny.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-white shadow-2xl pointer-events-none">
                 </div>
             </div>
         </div>
@@ -252,7 +252,6 @@
                 </div>
             </div>
             
-            <!-- Link do Rodapé Atualizado -->
             <div class="text-center text-gray-500 mt-20 font-medium">
                 Desenvolvido por <a href="https://www.directcontrol.com.br" target="_blank" class="text-brand-rose hover:text-gray-300 transition-colors font-bold">Direct control</a>
             </div>
@@ -267,8 +266,11 @@
         </span>
     </a>
 
-    <!-- Script para Animação de Digitação (Typewriter) -->
+    <!-- SCRIPTS DE ANIMAÇÃO E PROTEÇÃO -->
     <script>
+        // ==========================================
+        // 1. Efeito de Digitação (Typewriter)
+        // ==========================================
         const words = ["excelência", "segurança", "empatia", "tecnologia"];
         let wordIndex = 0;
         let charIndex = 0;
@@ -279,38 +281,62 @@
             const currentWord = words[wordIndex];
             
             if (isDeleting) {
-                // Apagando a palavra
                 typeWriterElement.textContent = currentWord.substring(0, charIndex - 1);
                 charIndex--;
             } else {
-                // Digitando a palavra
                 typeWriterElement.textContent = currentWord.substring(0, charIndex + 1);
                 charIndex++;
             }
 
-            // Velocidades de digitação (em milissegundos)
             let typingSpeed = isDeleting ? 60 : 120;
 
-            // Se a palavra inteira foi digitada
             if (!isDeleting && charIndex === currentWord.length) {
-                typingSpeed = 2500; // Tempo de pausa com a palavra montada na tela
+                typingSpeed = 2500; 
                 isDeleting = true;
-            } 
-            // Se a palavra inteira foi apagada
-            else if (isDeleting && charIndex === 0) {
+            } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length; // Passa para a próxima palavra
-                typingSpeed = 500; // Pausa antes de começar a digitar a nova
+                wordIndex = (wordIndex + 1) % words.length; 
+                typingSpeed = 500; 
             }
 
             setTimeout(typeEffect, typingSpeed);
         }
 
-        // Inicia o efeito 500ms após a página carregar
         document.addEventListener("DOMContentLoaded", () => {
             if(typeWriterElement) {
                 setTimeout(typeEffect, 500);
             }
+        });
+
+        // ==========================================
+        // 2. Proteção Anti-Cópia (Bloqueios)
+        // ==========================================
+        
+        // Bloqueia o clique do botão direito do mouse
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Bloqueia atalhos comuns de teclado (Inspecionar, Ver Código, Copiar e Salvar)
+        document.addEventListener('keydown', function(e) {
+            if (
+                e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                (e.ctrlKey && e.key === 'U') || 
+                (e.ctrlKey && e.key === 'u') || 
+                (e.ctrlKey && e.key === 'C') || 
+                (e.ctrlKey && e.key === 'c') ||
+                (e.ctrlKey && e.key === 'S') || 
+                (e.ctrlKey && e.key === 's')
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        // Bloqueia arrastar elementos da tela (como imagens)
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
         });
     </script>
 
