@@ -18,10 +18,14 @@
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
                     colors: {
                         brand: {
-                            rose: '#E11D48',
-                            green: '#059669',
-                            dark: '#0F172A',
-                            light: '#FFF1F2'
+                            rose: '#B8737F', // Rosa Queimado (Delicado e elegante)
+                            green: '#4A7C59', // Verde Suave (Harmoniza com o rosa queimado)
+                            dark: '#2D3748', // Cinza chumbo suave (melhor leitura no off-white)
+                            light: '#FAF7F5' // Fundo de destaque super suave
+                        },
+                        offwhite: {
+                            DEFAULT: '#FCFAF8', // Off-white base
+                            alt: '#F5EBE9' // Off-white levemente rosado para gradientes
                         }
                     }
                 }
@@ -30,22 +34,23 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { background-color: #FFFFFF; color: #334155; }
+        /* Fundo principal em Off-White suave */
+        body { background-color: #FCFAF8; color: #4A5568; }
         .hero-bg {
-            background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
+            background: linear-gradient(135deg, #FCFAF8 0%, #F5EBE9 100%);
         }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         
         /* Cursor piscando para o efeito de digitação */
         .typewriter-cursor {
-            border-right: 3px solid #E11D48;
+            border-right: 3px solid #B8737F;
             margin-left: 2px;
             animation: blink 0.7s infinite;
         }
         @keyframes blink {
             0%, 100% { border-color: transparent; }
-            50% { border-color: #E11D48; }
+            50% { border-color: #B8737F; }
         }
     </style>
 </head>
@@ -53,19 +58,19 @@
 <body class="antialiased select-none">
 
     <!-- Cabeçalho -->
-    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-md z-50 border-b border-rose-100">
+    <header class="fixed w-full bg-offwhite/95 backdrop-blur-md shadow-sm z-50 border-b border-brand-light">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold text-brand-dark flex items-center gap-2">
                 <span class="text-brand-rose"><i class="fa-solid fa-leaf"></i></span>
                 Dra. Steffany Porrino
             </div>
-            <nav class="hidden md:flex gap-6 font-semibold text-sm text-gray-700">
+            <nav class="hidden md:flex gap-6 font-semibold text-sm text-gray-600">
                 <a href="#inicio" class="hover:text-brand-rose transition-colors">Início</a>
                 <a href="#sobre" class="hover:text-brand-rose transition-colors">Sobre Mim</a>
                 <a href="#especialidades" class="hover:text-brand-rose transition-colors">Especialidades</a>
                 <a href="#faq" class="hover:text-brand-rose transition-colors">Dúvidas</a>
             </nav>
-            <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="hidden md:block bg-brand-green hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-emerald-500/30">
+            <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação." target="_blank" class="hidden md:block bg-brand-rose hover:bg-opacity-90 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md shadow-brand-rose/20">
                 Agendar Consulta
             </a>
         </div>
@@ -75,54 +80,63 @@
     <section id="inicio" class="hero-bg pt-32 pb-20 md:pt-40 md:pb-28">
         <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
             <div class="flex-1 text-center md:text-left">
-                <!-- Título com o Efeito de Digitação (Typewriter) -->
-                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-6 min-h-[120px] md:min-h-0">
-                    Sua saúde íntima com <span id="typewriter-text" class="text-brand-rose"></span><span class="typewriter-cursor"></span><br> e o acolhimento que você merece.
+                <!-- Título com o Efeito de Digitação (Typewriter) adaptado -->
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-6 min-h-[140px] md:min-h-[120px]">
+                    Cuidar da sua saúde íntima é devolver <span id="typewriter-text" class="text-brand-rose"></span><span class="typewriter-cursor"></span>
                 </h1>
-                <p class="text-lg text-gray-700 mb-8 max-w-lg mx-auto md:mx-0 font-medium">
-                    Fisioterapia Pélvica especializada para mulheres. Prevenção, reabilitação e qualidade de vida com base em ciência.
+                <p class="text-lg text-gray-600 mb-4 max-w-lg mx-auto md:mx-0 font-medium">
+                    Fisioterapia Pélvica especializada para mulheres em todas as fases da vida, da gestação ao pós-parto, passando pela dor, sexualidade e bem-estar.
+                </p>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 font-medium">
+                    Atendimento baseado em evidências científicas, com acolhimento, respeito e um olhar individualizado para o que você realmente precisa.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="bg-brand-rose hover:bg-rose-700 text-white text-center px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-rose-500/40 transform hover:-translate-y-1">
-                        <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Agendar minha consulta
+                    <!-- Botão Principal com Rosa Queimado -->
+                    <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação." target="_blank" class="bg-brand-rose hover:bg-opacity-90 text-white text-center px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-brand-rose/30 transform hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Quero agendar minha avaliação
                     </a>
+                    <!-- Botão Secundário -->
                     <a href="#especialidades" class="border-2 border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white text-center px-8 py-4 rounded-full font-bold transition-all">
-                        Conhecer Tratamentos
+                        Conhecer tratamentos
                     </a>
                 </div>
             </div>
             <div class="flex-1 flex justify-center">
                 <div class="relative">
-                    <div class="absolute inset-0 bg-brand-rose/30 rounded-full blur-3xl transform scale-110"></div>
-                    <img src="stanny.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-full border-8 border-white shadow-2xl pointer-events-none">
+                    <!-- Efeito de luz atrás da foto ajustado para o tom suave -->
+                    <div class="absolute inset-0 bg-brand-rose/20 rounded-full blur-3xl transform scale-110"></div>
+                    
+                    <!-- FOTO ATUALIZADA E ENQUADRADA (object-top) -->
+                    <img src="image_b623c3.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-72 h-72 md:w-[420px] md:h-[420px] object-cover object-top rounded-full border-8 border-offwhite shadow-2xl pointer-events-none">
+                    
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sobre Mim -->
-    <section id="sobre" class="py-24 bg-white">
+    <section id="sobre" class="py-24 bg-offwhite">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-extrabold text-brand-dark mb-4">Conheça a Dra. Steffany Porrino</h2>
                 <h3 class="text-xl text-brand-rose font-bold">Unindo o rigor científico ao cuidado humanizado.</h3>
             </div>
-            <div class="bg-brand-light p-8 md:p-12 rounded-3xl shadow-xl border border-rose-100 text-gray-800 leading-relaxed space-y-6 text-lg">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-brand-light text-gray-700 leading-relaxed space-y-6 text-lg">
                 <p>Acredito que o cuidado com a saúde da mulher vai muito além do corpo: trata-se de devolver liberdade, confiança e qualidade de vida. Sou Fisioterapeuta graduada pela Universidade Estadual Paulista (UNESP), onde também fui Presidente fundadora da Liga Acadêmica Interdisciplinar de Saúde da Mulher (LAISM).</p>
                 <p>A minha paixão por compreender profundamente o corpo feminino levou-me a integrar grupos de investigação científica na área de Uroginecologia e a especializar-me através da pós-graduação em Fisioterapia em Ginecologia pela UNIFESP.</p>
                 <p>O meu propósito é desmistificar os tabus em torno da saúde pélvica e oferecer um espaço seguro, livre de julgamentos, onde cada mulher recebe um tratamento altamente personalizado e embasado no que há de mais atual na ciência.</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t-2 border-rose-200 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t-2 border-brand-light mt-8">
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-16 h-16 bg-brand-rose text-white rounded-full flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="w-16 h-16 bg-brand-rose text-white rounded-full flex items-center justify-center text-2xl shadow-md"><i class="fa-solid fa-graduation-cap"></i></div>
                         <span class="font-bold text-brand-dark">Graduada pela UNESP Marília</span>
                     </div>
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-16 h-16 bg-brand-rose text-white rounded-full flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-microscope"></i></div>
+                        <div class="w-16 h-16 bg-brand-rose text-white rounded-full flex items-center justify-center text-2xl shadow-md"><i class="fa-solid fa-microscope"></i></div>
                         <span class="font-bold text-brand-dark">Pós-graduada Ginecologia UNIFESP</span>
                     </div>
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-16 h-16 bg-brand-rose text-white rounded-full flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-book-medical"></i></div>
+                        <div class="w-16 h-16 bg-brand-rose text-white rounded-full flex items-center justify-center text-2xl shadow-md"><i class="fa-solid fa-book-medical"></i></div>
                         <span class="font-bold text-brand-dark">Investigadora Científica e Ex-Pres. LAISM</span>
                     </div>
                 </div>
@@ -131,94 +145,94 @@
     </section>
 
     <!-- Especialidades -->
-    <section id="especialidades" class="py-24 bg-gray-50 border-y border-gray-200">
+    <section id="especialidades" class="py-24 bg-[#F8F5F3] border-y border-brand-light">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-extrabold text-brand-dark mb-4">Minhas Especialidades</h2>
-                <p class="text-gray-700 text-lg max-w-2xl mx-auto font-medium">Um olhar atento e cuidadoso para as diferentes fases e necessidades do seu corpo.</p>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto font-medium">Um olhar atento e cuidadoso para as diferentes fases e necessidades do seu corpo.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
                     <div class="text-brand-rose text-5xl mb-6"><i class="fa-solid fa-droplet"></i></div>
                     <h3 class="text-2xl font-bold text-brand-dark mb-4">Incontinência Urinária</h3>
-                    <p class="text-gray-700 leading-relaxed">Perder urina não é normal, em nenhuma idade. Trabalhamos o fortalecimento e a reabilitação da musculatura do assoalho pélvico para tratar perdas involuntárias, devolvendo sua segurança nas atividades diárias e esportivas.</p>
+                    <p class="text-gray-600 leading-relaxed">Perder urina não é normal, em nenhuma idade. Trabalhamos o fortalecimento e a reabilitação da musculatura do assoalho pélvico para tratar perdas involuntárias, devolvendo sua segurança nas atividades diárias e esportivas.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
                     <div class="text-brand-rose text-5xl mb-6"><i class="fa-solid fa-heart-pulse"></i></div>
                     <h3 class="text-2xl font-bold text-brand-dark mb-4">Disfunções Sexuais</h3>
-                    <p class="text-gray-700 leading-relaxed">A dor não deve fazer parte das relações íntimas. Condições como vaginismo e dispareunia têm tratamento. Reabilitamos a função muscular e a sensibilidade, promovendo o resgate do seu prazer e conforto.</p>
+                    <p class="text-gray-600 leading-relaxed">A dor não deve fazer parte das relações íntimas. Condições como vaginismo e dispareunia têm tratamento. Reabilitamos a função muscular e a sensibilidade, promovendo o resgate do seu prazer e conforto.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
                     <div class="text-brand-rose text-5xl mb-6"><i class="fa-solid fa-person-pregnant"></i></div>
                     <h3 class="text-2xl font-bold text-brand-dark mb-4">Fisioterapia Obstétrica</h3>
-                    <p class="text-gray-700 leading-relaxed">A gestação é um momento de transformações. Atuamos na preparação do assoalho pélvico para o parto, alívio de dores gestacionais e reabilitação pós-parto, para que viva a maternidade com mais saúde.</p>
+                    <p class="text-gray-600 leading-relaxed">A gestação é um momento de transformações. Atuamos na preparação do assoalho pélvico para o parto, alívio de dores gestacionais e reabilitação pós-parto, para que viva a maternidade com mais saúde.</p>
                 </div>
             </div>
 
             <div class="text-center mt-16">
-                <a href="https://wa.me/5511976188106" target="_blank" class="inline-block bg-brand-dark hover:bg-black text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl">
-                    Quero saber mais sobre os tratamentos
+                <a href="https://wa.me/5511976188106" target="_blank" class="inline-block bg-brand-dark hover:bg-gray-800 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-lg">
+                    Conhecer tratamentos
                 </a>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-24 bg-brand-light">
+    <section id="faq" class="py-24 bg-offwhite">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-4xl font-extrabold text-center text-brand-dark mb-4">Dúvidas Frequentes</h2>
-            <p class="text-center text-gray-700 mb-12 text-lg">Respostas rápidas para as principais dúvidas de nossas pacientes.</p>
+            <p class="text-center text-gray-600 mb-12 text-lg">Respostas rápidas para as principais dúvidas de nossas pacientes.</p>
             
             <div class="space-y-6">
-                <details class="group bg-white p-6 rounded-2xl shadow-md cursor-pointer border border-rose-100">
+                <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer border border-brand-light">
                     <summary class="font-bold text-xl text-brand-dark flex justify-between items-center">
                         A fisioterapia pélvica dói?
                         <span class="transition-transform duration-300 group-open:rotate-180 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
                     </summary>
-                    <p class="text-gray-700 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Não. Todo o processo é conduzido de forma suave, respeitando rigorosamente o seu limite e conforto. O objetivo é exatamente o oposto: aliviar dores e restaurar a funcionalidade da região.</p>
+                    <p class="text-gray-600 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Não. Todo o processo é conduzido de forma suave, respeitando rigorosamente o seu limite e conforto. O objetivo é exatamente o oposto: aliviar dores e restaurar a funcionalidade da região.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-2xl shadow-md cursor-pointer border border-rose-100">
+                <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer border border-brand-light">
                     <summary class="font-bold text-xl text-brand-dark flex justify-between items-center">
                         Preciso de indicação médica para agendar uma consulta?
                         <span class="transition-transform duration-300 group-open:rotate-180 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
                     </summary>
-                    <p class="text-gray-700 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Não é obrigatório. Você pode buscar a avaliação fisioterapêutica diretamente conosco caso sinta algum desconforto, dor na relação, perdas de urina ou queira atuar de forma preventiva (como na gestação).</p>
+                    <p class="text-gray-600 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Não é obrigatório. Você pode buscar a avaliação fisioterapêutica diretamente conosco caso sinta algum desconforto, dor na relação, perdas de urina ou queira atuar de forma preventiva (como na gestação).</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-2xl shadow-md cursor-pointer border border-rose-100">
+                <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer border border-brand-light">
                     <summary class="font-bold text-xl text-brand-dark flex justify-between items-center">
                         A fisioterapia pélvica é só para quem tem incontinência urinária?
                         <span class="transition-transform duration-300 group-open:rotate-180 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
                     </summary>
-                    <p class="text-gray-700 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">De forma alguma! Além da incontinência, tratamos disfunções sexuais (dores na relação como vaginismo e dispareunia), constipação intestinal, prolapsos (bexiga caída), diástase abdominal, e preparamos o corpo da mulher para a gestação e o parto.</p>
+                    <p class="text-gray-600 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">De forma alguma! Além da incontinência, tratamos disfunções sexuais (dores na relação como vaginismo e dispareunia), constipação intestinal, prolapsos (bexiga caída), diástase abdominal, e preparamos o corpo da mulher para a gestação e o parto.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-2xl shadow-md cursor-pointer border border-rose-100">
+                <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer border border-brand-light">
                     <summary class="font-bold text-xl text-brand-dark flex justify-between items-center">
                         Posso fazer a sessão menstruada?
                         <span class="transition-transform duration-300 group-open:rotate-180 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
                     </summary>
-                    <p class="text-gray-700 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Sim, a menstruação não é um impedimento clínico. No entanto, o mais importante é o seu conforto. Caso você não se sinta bem para terapias internas nesses dias, podemos focar em exercícios externos, liberação miofascial e outras condutas excelentes para a sessão.</p>
+                    <p class="text-gray-600 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Sim, a menstruação não é um impedimento clínico. No entanto, o mais importante é o seu conforto. Caso você não se sinta bem para terapias internas nesses dias, podemos focar em exercícios externos, liberação miofascial e outras condutas excelentes para a sessão.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-2xl shadow-md cursor-pointer border border-rose-100">
+                <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer border border-brand-light">
                     <summary class="font-bold text-xl text-brand-dark flex justify-between items-center">
                         Quanto tempo dura o tratamento completo?
                         <span class="transition-transform duration-300 group-open:rotate-180 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
                     </summary>
-                    <p class="text-gray-700 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Varia de acordo com cada paciente e diagnóstico. Na nossa primeira consulta (avaliação), faremos uma análise completa da sua musculatura e histórico, e a partir disso traçaremos um plano de tratamento personalizado com uma estimativa clara do número de sessões necessárias.</p>
+                    <p class="text-gray-600 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Varia de acordo com cada paciente e diagnóstico. Na nossa primeira consulta (avaliação), faremos uma análise completa da sua musculatura e histórico, e a partir disso traçaremos um plano de tratamento personalizado com uma estimativa clara do número de sessões necessárias.</p>
                 </details>
 
-                <details class="group bg-white p-6 rounded-2xl shadow-md cursor-pointer border border-rose-100">
+                <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer border border-brand-light">
                     <summary class="font-bold text-xl text-brand-dark flex justify-between items-center">
                         Atende por plano de saúde?
                         <span class="transition-transform duration-300 group-open:rotate-180 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
                     </summary>
-                    <p class="text-gray-700 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Meus atendimentos são estritamente particulares. Isso garante que eu possa dedicar o tempo e a atenção máxima que você e a sua saúde merecem em cada sessão. Porém, eu emito o recibo para que você possa solicitar o reembolso diretamente ao seu convênio, caso ele possua essa modalidade.</p>
+                    <p class="text-gray-600 mt-4 text-lg leading-relaxed pt-4 border-t border-gray-100">Meus atendimentos são estritamente particulares. Isso garante que eu possa dedicar o tempo e a atenção máxima que você e a sua saúde merecem em cada sessão. Porém, eu emito o recibo para que você possa solicitar o reembolso diretamente ao seu convênio, caso ele possua essa modalidade.</p>
                 </details>
             </div>
         </div>
@@ -229,24 +243,24 @@
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-extrabold mb-6 text-brand-rose">Dê o primeiro passo para o seu bem-estar</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto text-lg">Não adie o cuidado com a sua saúde íntima. Agende uma avaliação e vamos traçar juntas o melhor caminho para a sua qualidade de vida.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Não adie o cuidado com a sua saúde íntima. Agende uma avaliação e vamos traçar juntas o melhor caminho para a sua qualidade de vida.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center border-t border-gray-700 pt-16">
                 <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="w-16 h-16 bg-brand-light text-brand-rose rounded-full flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-location-dot"></i></div>
                     <h4 class="font-bold text-xl mb-2">Localização</h4>
                     <p class="text-gray-400">São Paulo, SP</p>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center text-2xl mb-6"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="w-16 h-16 bg-brand-light text-brand-rose rounded-full flex items-center justify-center text-2xl mb-6"><i class="fa-brands fa-whatsapp"></i></div>
                     <h4 class="font-bold text-xl mb-2">WhatsApp</h4>
                     <a href="https://wa.me/5511976188106" target="_blank" class="text-brand-rose hover:text-white font-bold transition-colors text-lg">(11) 97618-8106</a>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center text-2xl mb-6"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="w-16 h-16 bg-brand-light text-brand-rose rounded-full flex items-center justify-center text-2xl mb-6"><i class="fa-brands fa-instagram"></i></div>
                     <h4 class="font-bold text-xl mb-2">Instagram</h4>
                     <a href="https://instagram.com/steffanyporrino" target="_blank" class="text-brand-rose hover:text-white font-bold transition-colors text-lg">@steffanyporrino</a>
                 </div>
@@ -259,10 +273,10 @@
     </footer>
 
     <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center gap-3 group border-4 border-white">
+    <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center gap-3 group border-4 border-offwhite">
         <i class="fa-brands fa-whatsapp text-3xl"></i>
         <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-base ml-0 group-hover:ml-2">
-            Agende a sua Consulta
+            Quero agendar minha avaliação
         </span>
     </a>
 
@@ -271,7 +285,7 @@
         // ==========================================
         // 1. Efeito de Digitação (Typewriter)
         // ==========================================
-        const words = ["excelência", "segurança", "empatia", "tecnologia"];
+        const words = ["liberdade.", "confiança.", "qualidade de vida."];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -312,12 +326,8 @@
         // 2. Proteção Anti-Cópia (Bloqueios)
         // ==========================================
         
-        // Bloqueia o clique do botão direito do mouse
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
 
-        // Bloqueia atalhos comuns de teclado (Inspecionar, Ver Código, Copiar e Salvar)
         document.addEventListener('keydown', function(e) {
             if (
                 e.key === 'F12' || 
@@ -334,10 +344,7 @@
             }
         });
 
-        // Bloqueia arrastar elementos da tela (como imagens)
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener('dragstart', function(e) { e.preventDefault(); });
     </script>
 
 </body>
