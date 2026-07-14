@@ -18,9 +18,9 @@
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
                     colors: {
                         brand: {
-                            rose: '#B8737F', // Rosa Queimado (Delicado e elegante)
-                            green: '#4A7C59', // Verde Suave (Harmoniza com o rosa queimado)
-                            dark: '#2D3748', // Cinza chumbo suave (melhor leitura no off-white)
+                            rose: '#B8737F', // Rosa Queimado
+                            green: '#4A7C59', // Verde Suave
+                            dark: '#2D3748', // Cinza chumbo suave
                             light: '#FAF7F5' // Fundo de destaque super suave
                         },
                         offwhite: {
@@ -54,7 +54,6 @@
         }
     </style>
 </head>
-<!-- O 'select-none' impede que o usuário selecione/grife o texto com o mouse -->
 <body class="antialiased select-none">
 
     <!-- Cabeçalho -->
@@ -80,7 +79,6 @@
     <section id="inicio" class="hero-bg pt-32 pb-20 md:pt-40 md:pb-28">
         <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
             <div class="flex-1 text-center md:text-left">
-                <!-- Título com o Efeito de Digitação (Typewriter) adaptado -->
                 <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-6 min-h-[140px] md:min-h-[120px]">
                     Cuidar da sua saúde íntima é devolver <span id="typewriter-text" class="text-brand-rose"></span><span class="typewriter-cursor"></span>
                 </h1>
@@ -91,11 +89,9 @@
                     Atendimento baseado em evidências científicas, com acolhimento, respeito e um olhar individualizado para o que você realmente precisa.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <!-- Botão Principal com Rosa Queimado -->
                     <a href="https://wa.me/5511976188106?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação." target="_blank" class="bg-brand-rose hover:bg-opacity-90 text-white text-center px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-brand-rose/30 transform hover:-translate-y-1">
                         <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Quero agendar minha avaliação
                     </a>
-                    <!-- Botão Secundário -->
                     <a href="#especialidades" class="border-2 border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white text-center px-8 py-4 rounded-full font-bold transition-all">
                         Conhecer tratamentos
                     </a>
@@ -103,11 +99,10 @@
             </div>
             <div class="flex-1 flex justify-center">
                 <div class="relative">
-                    <!-- Efeito de luz atrás da foto ajustado para o tom suave -->
                     <div class="absolute inset-0 bg-brand-rose/20 rounded-full blur-3xl transform scale-110"></div>
                     
-                    <!-- FOTO ATUALIZADA (stanny.jpg) E ENQUADRADA (object-top) -->
-                    <img src="stanny.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-72 h-72 md:w-[420px] md:h-[420px] object-cover object-top rounded-full border-8 border-offwhite shadow-2xl pointer-events-none">
+                    <!-- FOTO ATUALIZADA (object-center para focar no meio da imagem) -->
+                    <img src="stanny.jpg" alt="Dra. Steffany Porrino" class="relative z-10 w-72 h-72 md:w-[420px] md:h-[420px] object-cover object-center rounded-full border-8 border-offwhite shadow-2xl pointer-events-none">
                     
                 </div>
             </div>
@@ -162,7 +157,7 @@
                 <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
                     <div class="text-brand-rose text-5xl mb-6"><i class="fa-solid fa-heart-pulse"></i></div>
                     <h3 class="text-2xl font-bold text-brand-dark mb-4">Disfunções Sexuais</h3>
-                    <p class="text-gray-600 leading-relaxed">A dor não deve fazer parte das relations íntimas. Condições como vaginismo e dispareunia têm tratamento. Reabilitamos a função muscular e a sensibilidade, promovendo o resgate do seu prazer e conforto.</p>
+                    <p class="text-gray-600 leading-relaxed">A dor não deve fazer parte das relações íntimas. Condições como vaginismo e dispareunia têm tratamento. Reabilitamos a função muscular e a sensibilidade, promovendo o resgate do seu prazer e conforto.</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all border-t-8 border-brand-rose transform hover:-translate-y-2">
@@ -282,9 +277,6 @@
 
     <!-- SCRIPTS DE ANIMAÇÃO E PROTEÇÃO -->
     <script>
-        // ==========================================
-        // 1. Efeito de Digitação (Typewriter)
-        // ==========================================
         const words = ["liberdade.", "confiança.", "qualidade de vida."];
         let wordIndex = 0;
         let charIndex = 0;
@@ -322,10 +314,6 @@
             }
         });
 
-        // ==========================================
-        // 2. Proteção Anti-Cópia (Bloqueios)
-        // ==========================================
-        
         document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
 
         document.addEventListener('keydown', function(e) {
